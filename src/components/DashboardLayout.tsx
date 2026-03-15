@@ -1,20 +1,20 @@
 import { ReactNode } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { 
-  LayoutDashboard, Users, Calculator, FileText, Building2, 
-  Settings, LogOut, ChevronRight 
-} from 'lucide-react';
+import {
+  LayoutDashboard, Users, Calculator, FileText, Building2,
+  Settings, LogOut, ChevronRight } from
+'lucide-react';
 
 const navItems = [
-  { icon: LayoutDashboard, label: 'Tableau de Bord', path: '/dashboard' },
-  { icon: Users, label: 'Employés', path: '/dashboard/employees' },
-  { icon: Calculator, label: 'Paie', path: '/dashboard/payroll' },
-  { icon: FileText, label: 'Déclarations', path: '/dashboard/declarations' },
-  { icon: Building2, label: 'Entreprise', path: '/dashboard/company' },
-  { icon: Settings, label: 'Paramètres', path: '/dashboard/settings' },
-];
+{ icon: LayoutDashboard, label: 'Tableau de Bord', path: '/dashboard' },
+{ icon: Users, label: 'Employés', path: '/dashboard/employees' },
+{ icon: Calculator, label: 'Paie', path: '/dashboard/payroll' },
+{ icon: FileText, label: 'Déclarations', path: '/dashboard/declarations' },
+{ icon: Building2, label: 'Entreprise', path: '/dashboard/company' },
+{ icon: Settings, label: 'Paramètres', path: '/dashboard/settings' }];
 
-const DashboardLayout = ({ children }: { children: ReactNode }) => {
+
+const DashboardLayout = ({ children }: {children: ReactNode;}) => {
   const location = useLocation();
 
   return (
@@ -30,7 +30,7 @@ const DashboardLayout = ({ children }: { children: ReactNode }) => {
           </Link>
         </div>
 
-        <nav className="flex-1 py-4 px-3 space-y-1">
+        <nav className="flex-1 py-4 px-3 space-y-1 rounded-2xl shadow-md">
           {navItems.map((item) => {
             const isActive = location.pathname === item.path;
             return (
@@ -38,16 +38,16 @@ const DashboardLayout = ({ children }: { children: ReactNode }) => {
                 key={item.path}
                 to={item.path}
                 className={`flex items-center gap-3 px-3 py-2.5 rounded-md text-sm transition-colors duration-150 group ${
-                  isActive
-                    ? 'bg-sidebar-accent text-sidebar-accent-foreground font-medium'
-                    : 'text-sidebar-foreground hover:bg-sidebar-accent/50 hover:text-sidebar-accent-foreground'
-                }`}
-              >
+                isActive ?
+                'bg-sidebar-accent text-sidebar-accent-foreground font-medium' :
+                'text-sidebar-foreground hover:bg-sidebar-accent/50 hover:text-sidebar-accent-foreground'}`
+                }>
+                
                 <item.icon className="w-4 h-4 shrink-0" />
                 <span className="flex-1">{item.label}</span>
                 {isActive && <ChevronRight className="w-3.5 h-3.5 opacity-50" />}
-              </Link>
-            );
+              </Link>);
+
           })}
         </nav>
 
@@ -63,8 +63,8 @@ const DashboardLayout = ({ children }: { children: ReactNode }) => {
           </div>
           <Link
             to="/"
-            className="flex items-center gap-3 px-3 py-2 mt-1 rounded-md text-sm text-sidebar-foreground hover:bg-sidebar-accent/50 transition-colors duration-150"
-          >
+            className="flex items-center gap-3 px-3 py-2 mt-1 rounded-md text-sm text-sidebar-foreground hover:bg-sidebar-accent/50 transition-colors duration-150">
+            
             <LogOut className="w-4 h-4" />
             Déconnexion
           </Link>
@@ -75,8 +75,8 @@ const DashboardLayout = ({ children }: { children: ReactNode }) => {
       <main className="flex-1 overflow-y-auto">
         {children}
       </main>
-    </div>
-  );
+    </div>);
+
 };
 
 export default DashboardLayout;
