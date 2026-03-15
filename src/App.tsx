@@ -6,6 +6,10 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import Landing from "./pages/Landing";
 import Dashboard from "./pages/Dashboard";
 import Employees from "./pages/Employees";
+import Payroll from "./pages/Payroll";
+import Declarations from "./pages/Declarations";
+import Company from "./pages/Company";
+import SettingsPage from "./pages/SettingsPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
